@@ -1,0 +1,16 @@
+# Hugo build outputs and caches
+public/
+resources/
+.hugo_build.lock
+
+# Node/JS (in case of tooling)
+node_modules/
+
+# macOS
+.DS_Store
+
+# Local env/editor
+.env
+.env.*
+.vscode/
+*.code-workspace

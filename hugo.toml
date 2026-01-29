@@ -1,0 +1,148 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "knowabout me"
+theme = "hugo-PaperMod"
+
+##paginate = 10
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+	disableXML = true
+	minifyOutput = true
+
+[outputs]
+	home = ["HTML", "RSS", "JSON"]
+	section = ["HTML", "RSS"]
+	taxonomy = ["HTML", "RSS"]
+	term = ["HTML", "RSS"]
+
+[taxonomies]
+	tag = "tags"
+	category = "categories"
+
+[permalinks]
+	posts = "/posts/:slug/"
+
+[params]
+	env = "production"
+	title = "Deepan P"
+	description = "Personal site powered by Hugo PaperMod."
+	author = "Your Name"
+	keywords = ["blog", "tech", "hugo", "papermod"]
+	DateFormat = "Jan 2, 2006"
+
+	defaultTheme = "auto"
+	disableThemeToggle = false
+
+	ShowShareButtons = true
+	ShowReadingTime = true
+	ShowBreadCrumbs = true
+	ShowCodeCopyButtons = true
+	ShowPostNavLinks = true
+	ShowWordCount = true
+	ShowRssButtonInSectionTermList = true
+	ShowToc = true
+	TocOpen = false
+	ShowCanonicalLink = true
+	ShowLastMod = true
+	comments = false
+
+	images = ["images/og-cover.png"]
+
+	[params.assets]
+		disableFingerprinting = false
+		favicon = "images/favicon.png"
+		favicon16x16 = "images/favicon-16x16.png"
+		favicon32x32 = "images/favicon-32x32.png"
+		apple_touch_icon = "images/apple-touch-icon.png"
+		safari_pinned_tab = "images/safari-pinned-tab.svg"
+
+	[params.homeInfoParams]
+		Title = "Hey, I'm Deepankumar P"
+		Content = "Welcome to my corner of the internet. I practise devops and play a SRE rol ,provicient with tools, and experiments."
+
+	[[params.socialIcons]]
+		name = "github"
+		url = "https://github.com/yourhandle"
+	[[params.socialIcons]]
+		name = "twitter"
+		url = "https://twitter.com/dpnkumarp"
+	[[params.socialIcons]]
+		name = "linkedin"
+		url = "https://www.linkedin.com/in/yourhandle/"
+
+	[params.profileMode]
+		enabled = false
+		title = "Your Name"
+		subtitle = "Engineer • Builder • Learner"
+		imageUrl = "images/avatar.jpg"
+		imageTitle = "avatar"
+		imageWidth = 120
+		imageHeight = 120
+		[[params.profileMode.buttons]]
+			name = "Posts"
+			url = "/posts/"
+		[[params.profileMode.buttons]]
+			name = "About"
+			url = "/about/"
+
+	[params.cover]
+		hidden = false
+		hiddenInList = true
+		hiddenInSingle = false
+
+	[params.fuseOpts]
+		isCaseSensitive = false
+		includeScore = true
+		shouldSort = true
+		includeMatches = true
+		minMatchCharLength = 2
+		threshold = 0.3
+		keys = ["title", "permalink", "summary", "content"]
+
+[menu]
+	[[menu.main]]
+		name = "Posts"
+		url = "/posts/"
+		weight = 1
+	[[menu.main]]
+		name = "Categories"
+		url = "/categories/"
+		weight = 2
+	[[menu.main]]
+		name = "Tags"
+		url = "/tags/"
+		weight = 3
+	[[menu.main]]
+		name = "Search"
+		url = "/search/"
+		weight = 4
+
+[markup]
+	[markup.highlight]
+		noClasses = false
+		style = "dracula"
+		lineNos = true
+		lineNumbersInTable = true
+		codeFences = true
+		guessSyntax = true
+	[markup.tableOfContents]
+		startLevel = 2
+		endLevel = 4
+		ordered = false
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+			unsafe = true
+
+[privacy]
+	[privacy.youtube]
+		privacyEnhanced = true
+	[privacy.twitter]
+		enableDNT = true
+
+[services]
+	[services.googleAnalytics]
+		id = ""
