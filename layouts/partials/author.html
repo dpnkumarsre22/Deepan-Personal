@@ -1,2 +1,0 @@
-{{- /* Resolve author name safely for meta author */ -}}
-{{- with site.Params.author -}}{{ . -}}{{- else -}}{{ with site.Author.name -}}{{ . -}}{{- end -}}{{- end -}}
