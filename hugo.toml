@@ -103,6 +103,20 @@ buildExpired = false
 		threshold = 0.3
 		keys = ["title", "permalink", "summary", "content"]
 
+		# Optional analytics configuration
+		[params.analytics]
+			[params.analytics.google]
+				# GA4 tag ID (e.g., G-XXXXXXXXXX). Leave empty to disable.
+				TagID = ""
+				# Google site verification tag (optional)
+				SiteVerificationTag = ""
+			[params.analytics.yandex]
+				SiteVerificationTag = ""
+			[params.analytics.bing]
+				SiteVerificationTag = ""
+			[params.analytics.naver]
+				SiteVerificationTag = ""
+
 [menu]
 	[[menu.main]]
 		name = "Posts"
@@ -140,7 +154,7 @@ buildExpired = false
 [privacy]
 	[privacy.youtube]
 		privacyEnhanced = true
-	[privacy.twitter]
+	[privacy.x]
 		enableDNT = true
 
 [services]
