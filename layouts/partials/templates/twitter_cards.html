@@ -1,0 +1,20 @@
+{{- $isPage := or .IsPage .IsSection -}}
+{{- $site := site -}}
+{{- $title := cond .IsHome $site.Title (printf "%s | %s" .Title $site.Title) -}}
+{{- $desc := cond (ne (len (trim .Description)) 0) .Description (cond $isPage (.Summary | default (printf "%s - %s" .Title $site.Title)) ($site.Params.description)) -}}
+{{- $images := slice -}}
+{{- if .Params.images }}{{ $images = .Params.images }}{{ end -}}
+{{- if and (not $images) .Params.cover }}
+  {{- with .Params.cover.image }}{{ $images = (slice .) }}{{ end -}}
+{{- end -}}
+{{- if and (not $images) $site.Params.images }}{{ $images = $site.Params.images }}{{ end -}}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+{{- with index $images 0 }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{- end }}
+{{- with $site.Params.twitterSite }}
+<meta name="twitter:site" content="{{ . }}">
+{{- end }}

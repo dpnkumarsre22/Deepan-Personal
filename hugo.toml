@@ -28,7 +28,7 @@ buildExpired = false
 
 [params]
 	env = "production"
-	title = "Deepan P"
+	title = "Deepan"
 	description = "Personal site powered by Hugo PaperMod."
 	author = "Your Name"
 	keywords = ["blog", "tech", "hugo", "papermod"]

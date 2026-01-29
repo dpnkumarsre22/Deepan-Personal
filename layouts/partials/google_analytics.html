@@ -1,0 +1,4 @@
+{{- /* PaperMod GA shim: render GA only if configured */ -}}
+{{- if or .Site.GoogleAnalytics .Site.Params.googleAnalytics .Site.Services.GoogleAnalytics.ID -}}
+  {{- template "_internal/google_analytics_async.html" . -}}
+{{- end -}}
