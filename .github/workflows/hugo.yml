@@ -27,7 +27,7 @@ jobs:
       - name: Set up Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.124.1'
+          hugo-version: '0.146.0'
           extended: true
 
       - name: Setup Go (for Hugo Modules cache)
