@@ -51,12 +51,17 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build
-        run: |
-          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
           HUGO_CACHEDIR: ${{ github.workspace }}/.hugo_cache
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          # Fallback base URL if Pages API is unavailable (e.g., returns 404)
+          DEFAULT_BASE_URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}"
+          EFFECTIVE_BASE_URL="${BASE_URL:-${DEFAULT_BASE_URL}}"
+          echo "Using baseURL: ${EFFECTIVE_BASE_URL}"
+          hugo --minify --baseURL "${EFFECTIVE_BASE_URL}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
